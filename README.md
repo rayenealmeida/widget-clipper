@@ -1,0 +1,3 @@
+# widget-clipper
+
+ClipPath + LineTo
