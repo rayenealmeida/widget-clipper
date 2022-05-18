@@ -18,15 +18,37 @@ class _MyAppState extends State<MyApp> {
     return Scaffold(
       body: Column(
         children: <Widget>[
-          Container(
-            height: 320,
-            decoration: BoxDecoration(
-              color: Colors.purple[300],
+          ClipPath(
+            clipper: MyClipper(),
+            child: Container(
+              height: 320,
+              decoration: BoxDecoration(
+                color: Colors.purple[300],
+              ),
             ),
           )
         ],
       )
     );
+  }
+}
+
+class MyClipper extends CustomClipper<Path>{
+  @override
+  Path getClip(Size size) {
+    var path = new Path();
+    path.lineTo(0, 250);
+    path.lineTo(250, 0);
+    path.lineTo(size.width-500, size.height-500);
+
+    return path;
+
+  }
+
+  @override
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
+    // TODO: implement shouldReclip
+    return false;
   }
 
 }
